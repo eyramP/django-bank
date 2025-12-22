@@ -19,6 +19,9 @@ logs_mailpit:
 logs_postgres:
 	docker compose -f local.yml logs postgres
 
+logs_nginx:
+	docker compose -f local.yml logs nginx
+
 inspect_nw:
 	docker network inspect banker_local_nw
 
@@ -41,4 +44,4 @@ connect_db:
 	docker compose -f local.yml exec postgres psql --username=eyram --dbname=banker
 
 down-v:
-	docker compose -f local.yml down -v 
+	docker compose -f local.yml down -v
