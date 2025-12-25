@@ -22,6 +22,9 @@ logs_postgres:
 logs_nginx:
 	docker compose -f local.yml logs nginx
 
+logs_rabbitmq:
+	docker compose -f local.yml logs rabbitmq
+
 inspect_nw:
 	docker network inspect banker_local_nw
 

@@ -33,6 +33,6 @@ while True:
 
 END
 
-echo >&2 'Postgres is avilable'
+echo >&2 'Postgres is available'
 
 exec "$@"
