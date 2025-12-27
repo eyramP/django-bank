@@ -124,7 +124,7 @@ class User(AbstractUser):
 
     @property
     def full_name(self) -> str:
-        full_name = f"{self.first_name} {self.last_failed_login}"
+        full_name = f"{self.first_name} {self.last_name}"
         return full_name.title().strip()
 
     class Meta:
