@@ -179,11 +179,10 @@ SIMPLE_JWT = {
     "SIGNIN_KEY": getenv("SIGNIN_KEY"),
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "ROTATE_REFRESH_TOKEN": True,
+    "ROTATE_REFRESH_TOKENS": True,
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "user_id",
 }
-
 
 DJOSER = {
     "USER_ID_FIELD": "id",
@@ -193,7 +192,7 @@ DJOSER = {
     "SEND_ACTIVATION_EMAIL": True,
     "PASSWORD_CHANGED_EMAIL_CONFIRMATION": True,
     "PASSWORD_RESET_CONFIRM_RETYPE": True,
-    "ACTIVATION_URL": "activate/{uid}/token",
+    "ACTIVATION_URL": "activate/{uid}/{token}",
     "PASSWORD_RESET_CONFIRM_URL": "password-reset/{uid}/{token}",
     "SERIALIZERS": {
         "user_create": "corea_apps.user_auth.serializers.UserCreateSerializer",

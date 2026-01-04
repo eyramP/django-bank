@@ -93,7 +93,7 @@ class User(AbstractUser):
     def handle_failed_login_attempt(self) -> None:
         self.failed_login_attempts += 1
         self.last_failed_login = timezone.now()
-        if self.failed_login_attempts >= settings.LONGIN_ATTEMPTS:
+        if self.failed_login_attempts >= settings.LOGIN_ATTEMPTS:
             self.account_status = self.AccountStatus.LOCKED
             self.save()
             sent_account_locked_email(self)

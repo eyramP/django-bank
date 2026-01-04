@@ -53,7 +53,7 @@ class UserManager(DjangoUserManager):
             password: Optional[str] = None,
             **extra_fields: Any
             ):
-        extra_fields.setdefault('is_userperuser', False)
+        extra_fields.setdefault('is_superuser', False)
         extra_fields.setdefault('is_staff', False)
         return self._create_user(email, password, **extra_fields)
 
