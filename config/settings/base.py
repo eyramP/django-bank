@@ -154,25 +154,32 @@ DEFAULT_PHONE_NUMBER = "+233545678908"
 
 REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFUALY_AUTHENTICATION_CLASSES": [
+
+    "DEFAULT_AUTHENTICATION_CLASSES": [
         "core_apps.common.cookie_auth.CookieAuthentication",
     ],
+
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    "DEFAULT_PAGINATION_CLASSES": "rest_framework.pagination.PageNumberPagination",
+
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend"
     ],
+
     "PAGE_SIZE": 10,
+
     "DEFAULT_THROTTLE_CLASSES": [
         "rest_framework.throttling.AnonRateThrottle",
         "rest_framework.throttling.UserRateThrottle",
     ],
-    "DEFAULT_THROTTLE_RATE": {
+
+    "DEFAULT_THROTTLE_RATES": {
         "anon": "50/day",
         "user": "100/day"
-    }
+    },
 }
 
 SIMPLE_JWT = {
@@ -262,7 +269,7 @@ CLOUDINARY_API_SECRET = getenv("CLOUDINARY_API_SECRET")
 
 cloudinary.config(
     cloud_name=CLOUDINARY_CLOUD_NAME,
-    API_KEY=CLOUDINARY_API_KEY,
+    api_key=CLOUDINARY_API_KEY,
     api_secret=CLOUDINARY_API_SECRET
 )
 

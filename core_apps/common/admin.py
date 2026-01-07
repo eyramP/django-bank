@@ -30,14 +30,14 @@ class ContentViewAdmin(admin.ModelAdmin):
         (
             _("Viewer Details"),
             {
-                "fields": ("user", "viewer_ip" "last_viewed")
+                "fields": ("user", "viewer_ip", "last_viewed")
             },
         ),
 
         (
             _("Timestamps"),
             {
-                "fields": ("created_at", "last_viewed"), "classes": ("collapse",),
+                "fields": ("created_at", "updated_at"), "classes": ("collapse",),
             },
         ),
     )

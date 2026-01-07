@@ -78,7 +78,7 @@ class UserChangeForm(DjangoUserChangeForm):
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
-        if User.exclude(pk=self.instance.pk).filter(email=email).exists():
+        if User.objects.exclude(pk=self.instance.pk).filter(email=email).exists():
             raise ValidationError(_("A user with this email already exists"))
         return email
 
