@@ -11,6 +11,7 @@ from rest_framework import serializers
 from django.core.files.storage import default_storage
 
 from core_apps.common.models import ContentView
+from core_apps.accounts.models import BankAccount
 from .models import Profile, NextOfKin
 from .tasks import upload_photos_to_cloudinary
 
@@ -61,6 +62,12 @@ class ProfileSerializer(serializers.ModelSerializer):
     id_photo_url = serializers.URLField(read_only=True)
     signature_photo_url = serializers.URLField(read_only=True)
     view_count = serializers.SerializerMethodField()
+    account_currency = serializers.ChoiceField(
+        choices=BankAccount.AccountCurrency.choices
+    )
+    account_type = serializers.ChoiceField(
+        choices=BankAccount.AccountType.choices
+    )
 
     class Meta:
         model = Profile
@@ -94,7 +101,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             "annual_income",
             "date_of_employment",
             "employer_address",
-            # "employer_city",
             "employer_state",
             "next_of_kin",
             "created_at",
@@ -106,6 +112,8 @@ class ProfileSerializer(serializers.ModelSerializer):
             "signature_photo",
             "signature_photo_url",
             "view_count",
+            "account_currency",
+            "account_type"
         ]
 
         read_only_fields = [
